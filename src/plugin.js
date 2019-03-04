@@ -31,7 +31,10 @@ function install(Vue) {
   Vue.mixin({
     beforeCreate() {
       uidCounter += 1;
-      this.uid = `uid-${uidCounter}`;
+      const uid = `uid-${uidCounter}`;
+      Object.defineProperties(this, {
+        uid: { get() { return uid; } },
+      });
     },
   });
 

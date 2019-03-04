@@ -16,6 +16,11 @@ describe('Plugin', () => {
       assert.isString(vm.uid);
     });
 
+    it('is immutable', () => {
+      const vm = new Vue();
+      assert.throws(() => { vm.uid = 'fail'; });
+    });
+
     it('is unique', () => {
       const vm1 = new Vue();
       const vm2 = new Vue();
