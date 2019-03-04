@@ -3,6 +3,7 @@
 
 # ESLint specifies LF line endings
 *.js text eol=lf
+*.ts text eol=lf
 
 # Workaround for npm's annoying habit of forcing LF line endings
 package.json text eol=lf
