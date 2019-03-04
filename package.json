@@ -1,0 +1,46 @@
+{
+  "name": "vue-unique-id",
+  "version": "1.0.0",
+  "description": "Component and HTML unique id generation plugin for Vue.js",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "lint": "node_modules/.bin/eslint .",
+    "test": "node_modules/.bin/mocha",
+    "posttest": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/berniegp/vue-unique-id.git"
+  },
+  "keywords": [
+    "vue",
+    "vuejs",
+    "vue-plugin",
+    "id",
+    "id-generator",
+    "scoped-id",
+    "html",
+    "form",
+    "label"
+  ],
+  "author": "Bertrand Guay-Paquet <bernie@step.polymtl.ca>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/berniegp/vue-unique-id/issues"
+  },
+  "homepage": "https://github.com/berniegp/vue-unique-id#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.12.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "mocha": "^6.0.2",
+    "vue": "^2.6.8"
+  },
+  "engines": {
+    "node": ">=6.0.0"
+  }
+}

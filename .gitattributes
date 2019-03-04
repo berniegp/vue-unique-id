@@ -1,0 +1,9 @@
+# Normalize line endings for text files by default
+* text=auto
+
+# ESLint specifies LF line endings
+*.js text eol=lf
+
+# Workaround for npm's annoying habit of forcing LF line endings
+package.json text eol=lf
+package-lock.json text eol=lf
