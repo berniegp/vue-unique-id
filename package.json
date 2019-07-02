@@ -3,12 +3,15 @@
   "version": "1.0.1",
   "description": "Component and HTML unique id generation plugin for Vue.js",
   "main": "index.js",
+  "typings": "types/index.d.ts",
   "directories": {
     "test": "test"
   },
   "scripts": {
     "lint": "eslint .",
-    "test": "mocha",
+    "test": "npm run test:unit && npm run test:types",
+    "test:unit": "mocha",
+    "test:types": "tsc -p types/test",
     "posttest": "npm run lint"
   },
   "repository": {
@@ -38,6 +41,7 @@
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.3",
     "mocha": "^6.1.4",
+    "typescript": "^3.4.5",
     "vue": "^2.6.10"
   },
   "engines": {
