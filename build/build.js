@@ -68,8 +68,9 @@ function write(dest, code, zip = false) {
             report(` (gzipped: ${getSize(zipped)})`);
           }
         });
+      } else {
+        report();
       }
-      report();
     });
   });
 }
