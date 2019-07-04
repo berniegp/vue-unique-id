@@ -40,9 +40,6 @@ function buildEntry({ input, output }) {
           output: {
             ascii_only: true,
           },
-          compress: {
-            pure_funcs: ['makeMap'],
-          },
         }).code;
         return write(file, minified, true);
       }
