@@ -2,15 +2,20 @@
   "name": "vue-unique-id",
   "version": "1.0.1",
   "description": "Component and HTML unique id generation plugin for Vue.js",
-  "main": "index.js",
+  "main": "dist/vue-unique-id.common.js",
+  "module": "dist/vue-unique-id.esm.js",
+  "unpkg": "dist/vue-unique-id.js",
   "typings": "types/index.d.ts",
-  "directories": {
-    "test": "test"
-  },
+  "files": [
+    "dist/**/*",
+    "types/*.d.ts"
+  ],
   "scripts": {
-    "lint": "eslint .",
+    "dev:dist": "rollup -wm -c build/rollup.dev.config.js",
+    "build": "node build/build.js",
+    "lint": "eslint src test",
     "test": "npm run test:unit && npm run test:types",
-    "test:unit": "mocha",
+    "test:unit": "mocha test --recursive --require esm",
     "test:types": "tsc -p types/test",
     "posttest": "npm run lint"
   },
@@ -36,11 +41,17 @@
   },
   "homepage": "https://github.com/berniegp/vue-unique-id#readme",
   "devDependencies": {
+    "buble": "^0.19.8",
     "chai": "^4.2.0",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.3",
+    "esm": "^3.2.25",
     "mocha": "^6.1.4",
+    "rollup": "^1.16.4",
+    "rollup-plugin-buble": "^0.19.8",
+    "rollup-plugin-replace": "^2.2.0",
+    "terser": "^4.0.2",
     "typescript": "^3.4.5",
     "vue": "^2.6.10"
   },

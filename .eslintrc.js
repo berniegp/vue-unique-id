@@ -5,8 +5,8 @@ module.exports = {
         node: true,
     },
     parserOptions: {
-      ecmaVersion: 2015,
-      sourceType: 'script',
+      ecmaVersion: 2018,
+      sourceType: 'module',
     },
     rules: {
         // Allow to use braces if desired
@@ -49,8 +49,23 @@ module.exports = {
 
         // To allow comment blocks that are actually section headers
         'spaced-comment': ['error', 'always', { 'exceptions': ['/'] }],
+    },
+    overrides: {
+      files: ['build/**/*.js'],
+      parserOptions: {
+        sourceType: 'script',
+      },
+      rules: {
+        'import/no-extraneous-dependencies': [
+          "error",
+          {
+            // Build scripts can depend on devDependencies
+            "devDependencies": true,
+          }
+        ],
 
-        // The code doesn't go through Babel so 'use strict' is not added automatically
-        strict: ['error', 'safe'],
-    }
+        // We want to print errors to console during the build
+        'no-console': 0,
+      }
+    },
 };

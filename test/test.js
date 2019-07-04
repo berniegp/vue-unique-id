@@ -1,8 +1,6 @@
-'use strict';
-
-const { assert } = require('chai');
-const Vue = require('vue');
-const plugin = require('../src/plugin');
+import { assert } from 'chai';
+import Vue from 'vue';
+import plugin from '../src/plugin';
 
 Vue.use(plugin);
 

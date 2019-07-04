@@ -1,5 +1,3 @@
-'use strict';
-
 const methods = {
   /**
    * Generate a component-scoped unique HTML identifier.
@@ -25,7 +23,7 @@ const methods = {
   },
 };
 
-function install(Vue) {
+export default function install(Vue) {
   // Assign a unique id to each component
   let uidCounter = 0;
   Vue.mixin({
@@ -40,5 +38,3 @@ function install(Vue) {
 
   Object.assign(Vue.prototype, methods);
 }
-
-module.exports = install;
