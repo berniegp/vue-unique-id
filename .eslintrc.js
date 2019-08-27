@@ -1,13 +1,6 @@
 module.exports = {
   root: true,
   extends: 'airbnb-base',
-  env: {
-    node: true,
-  },
-  parserOptions: {
-    ecmaVersion: 2018,
-    sourceType: 'module',
-  },
   rules: {
     // Allow to use braces if desired
     'arrow-body-style': 0,
@@ -50,7 +43,7 @@ module.exports = {
     // To allow comment blocks that are actually section headers
     'spaced-comment': ['error', 'always', { 'exceptions': ['/'] }],
   },
-  overrides: {
+  overrides: [{
     files: ['build/**/*.js'],
     parserOptions: {
       sourceType: 'script',
@@ -67,5 +60,5 @@ module.exports = {
       // We want to print errors to console during the build
       'no-console': 0,
     }
-  },
+  }],
 };
