@@ -1,8 +1,8 @@
 'use strict';
 
 const path = require('path');
-const buble = require('rollup-plugin-buble');
-const replace = require('rollup-plugin-replace');
+const buble = require('@rollup/plugin-buble');
+const replace = require('@rollup/plugin-replace');
 const packageVersion = require('../package.json').version;
 
 const version = process.env.VERSION || packageVersion;
