@@ -1,12 +1,14 @@
 import { assert } from 'chai';
-import Vue from 'vue';
+import { createLocalVue } from '@vue/test-utils';
 import plugin from '../src/plugin';
-
-Vue.use(plugin);
 
 const validHTML4id = /^[A-Za-z][A-Za-z0-9_:.-]*$/;
 
 describe('Plugin', () => {
+  // Use a local Vue class to be able to also test plugin options
+  const Vue = createLocalVue();
+  Vue.use(plugin);
+
   describe('vm.uid', () => {
     it('exists', () => {
       const vm = new Vue();
@@ -70,6 +72,20 @@ describe('Plugin', () => {
     it('returns the id with "#" prepended', () => {
       const vm = new Vue();
       assert.equal(vm.$idRef(), `#${vm.$id()}`);
+    });
+  });
+
+  describe('Options', () => {
+    const options = {
+      uidProperty: 'my_uid',
+    };
+    const Vue = createLocalVue();
+    Vue.use(plugin, options);
+
+    it('uidProperty', () => {
+      const vm = new Vue();
+      assert.isOk(vm[options.uidProperty]);
+      assert.isString(vm[options.uidProperty]);
     });
   });
 });

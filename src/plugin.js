@@ -23,7 +23,16 @@ const methods = {
   },
 };
 
-export default function install(Vue) {
+const DEFAULTS = {
+  // {string} Property name of the component's unique identifier. Change this if 'vm.uid' conflicts
+  // with another plugin or your own props.
+  uidProperty: 'uid',
+};
+
+export default function install(Vue, options = {}) {
+  // Don't use object spread to merge the defaults because bublé transforms that to Object.assign
+  const uidProperty = options.uidProperty || DEFAULTS.uidProperty;
+
   // Assign a unique id to each component
   let uidCounter = 0;
   Vue.mixin({
@@ -31,7 +40,7 @@ export default function install(Vue) {
       uidCounter += 1;
       const uid = `uid-${uidCounter}`;
       Object.defineProperties(this, {
-        uid: { get() { return uid; } },
+        [uidProperty]: { get() { return uid; } },
       });
     },
   });

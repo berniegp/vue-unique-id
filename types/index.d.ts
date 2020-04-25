@@ -1,4 +1,4 @@
-import './vue';
 import { PluginFunction } from 'vue';
+import { PluginOptions } from './vue';
 
-export const install: PluginFunction<never>;
+export const install: PluginFunction<PluginOptions>;

@@ -31,3 +31,11 @@ declare module 'vue/types/vue' {
     $idRef(id?: string): string;
   }
 }
+
+export interface PluginOptions {
+  /**
+   * Property name of the component's unique identifier. Change this if 'vm.uid' conflicts
+   * with another plugin or your own props.
+   */
+  uidProperty: string;
+}
