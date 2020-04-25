@@ -13,7 +13,7 @@
   "scripts": {
     "dev:dist": "rollup -wm -c build/rollup.dev.config.js",
     "build": "node build/build.js",
-    "lint": "eslint src test",
+    "lint": "eslint src test build",
     "test": "npm run test:unit && npm run test:types",
     "test:unit": "mocha test --recursive --require esm",
     "test:types": "tsc -p types/test",

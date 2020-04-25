@@ -43,22 +43,4 @@ module.exports = {
     // To allow comment blocks that are actually section headers
     'spaced-comment': ['error', 'always', { 'exceptions': ['/'] }],
   },
-  overrides: [{
-    files: ['build/**/*.js'],
-    parserOptions: {
-      sourceType: 'script',
-    },
-    rules: {
-      'import/no-extraneous-dependencies': [
-        "error",
-        {
-          // Build scripts can depend on devDependencies
-          "devDependencies": true,
-        }
-      ],
-
-      // We want to print errors to console during the build
-      'no-console': 0,
-    }
-  }],
 };
