@@ -36,5 +36,7 @@ export default function install(Vue) {
     },
   });
 
-  Object.assign(Vue.prototype, methods);
+  // Don't use Object.assign() to match the Vue.js supported browsers (ECMAScript 5)
+  Vue.prototype.$id = methods.$id;
+  Vue.prototype.$idRef = methods.$idRef;
 }
