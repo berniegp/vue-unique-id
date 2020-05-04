@@ -16,62 +16,58 @@ build(Object.keys(configs).map((key) => configs[key]));
 function build(builds) {
   let built = 0;
   const total = builds.length;
-  const next = () => {
-    buildEntry(builds[built]).then(() => {
+  async function next() {
+    try {
+      await buildEntry(builds[built]);
       built++;
       if (built < total) {
         next();
       }
-    }).catch(logError);
-  };
+    } catch (e) {
+      logError(e);
+    }
+  }
 
   next();
 }
 
-function buildEntry({ input, output }) {
+async function buildEntry({ input, output }) {
   const { file } = output;
   const isProd = /min\.js$/.test(file);
-  return rollup.rollup(input)
-    .then((bundle) => bundle.generate(output))
-    .then(({ output: [{ code }] }) => {
-      if (isProd) {
-        const minified = terser.minify(code, {
-          toplevel: true,
-          output: {
-            ascii_only: true,
-          },
-        }).code;
-        return write(file, minified, true);
-      }
-      return write(file, code);
-    });
+  const bundle = await rollup.rollup(input);
+  const { output: [{ code }] } = await bundle.generate(output);
+  if (isProd) {
+    const minified = terser.minify(code, {
+      toplevel: true,
+      output: {
+        ascii_only: true,
+      },
+    }).code;
+    return write(file, minified, true);
+  }
+  return write(file, code);
 }
 
-function write(dest, code, zip = false) {
-  return new Promise((resolve, reject) => {
-    function report(extra) {
-      console.log(`${blue(path.relative(process.cwd(), dest))} ${getSize(code)}${extra || ''}`);
-      resolve();
+async function write(dest, code, zip = false) {
+  function report(extra) {
+    console.log(`${blue(path.relative(process.cwd(), dest))} ${getSize(code)}${extra || ''}`);
+  }
+
+  fs.writeFile(dest, code, (err) => {
+    if (err) {
+      throw err;
     }
 
-    fs.writeFile(dest, code, (err) => {
-      if (err) {
-        reject(err);
-        return;
-      }
-
-      if (zip) {
-        zlib.gzip(code, (err, zipped) => {
-          if (err) {
-            reject(err);
-          } else {
-            report(` (gzipped: ${getSize(zipped)})`);
-          }
-        });
-      } else {
-        report();
-      }
-    });
+    if (zip) {
+      zlib.gzip(code, (err, zipped) => {
+        if (err) {
+          throw err;
+        }
+        report(` (gzipped: ${getSize(zipped)})`);
+      });
+    } else {
+      report();
+    }
   });
 }
 
