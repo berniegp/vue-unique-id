@@ -18,7 +18,7 @@ module.exports = {
     }],
 
     // Saving 2 characters is not worth the potential errors
-    'curly': 'error',
+    curly: 'error',
 
     // A chain of 'if' and 'else if' statements is clearer than multiple individual 'if' blocks
     'no-else-return': ['error', { allowElseIf: true }],
@@ -33,7 +33,7 @@ module.exports = {
     'no-shadow': 0,
 
     // This is still the best way to express the private api intent
-    'no-underscore-dangle': ['error', { 'allowAfterThis': true }],
+    'no-underscore-dangle': ['error', { allowAfterThis: true }],
 
     // Allow functions to be used before defined because:
     // 1) they are hoisted;
@@ -41,6 +41,6 @@ module.exports = {
     'no-use-before-define': ['error', { functions: false, classes: true, variables: true }],
 
     // To allow comment blocks that are actually section headers
-    'spaced-comment': ['error', 'always', { 'exceptions': ['/'] }],
+    'spaced-comment': ['error', 'always', { exceptions: ['/'] }],
   },
 };

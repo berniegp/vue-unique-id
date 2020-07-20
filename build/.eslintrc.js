@@ -1,14 +1,16 @@
+'use strict';
+
 module.exports = {
   parserOptions: {
     sourceType: 'script',
   },
   rules: {
     'import/no-extraneous-dependencies': [
-      "error",
+      'error',
       {
         // Build scripts can depend on devDependencies
-        "devDependencies": true,
-      }
+        devDependencies: true,
+      },
     ],
 
     // We want to print errors to console during the build

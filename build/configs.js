@@ -53,6 +53,7 @@ function genConfig(opts) {
     },
     output: {
       banner,
+      exports: 'default',
       file: opts.file,
       format: opts.format,
       name: 'VueUniqueId',
