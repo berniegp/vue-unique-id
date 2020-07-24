@@ -1,4 +1,5 @@
 import { PluginFunction } from 'vue';
 import { PluginOptions } from './vue';
 
-export const install: PluginFunction<PluginOptions>;
+declare const install : PluginFunction<PluginOptions>;
+export default install;
