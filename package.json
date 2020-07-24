@@ -52,7 +52,7 @@
     "eslint-plugin-import": "^2.22.0",
     "esm": "^3.2.25",
     "mocha": "^8.0.1",
-    "rollup": "^2.22.1",
+    "rollup": "^2.23.0",
     "terser": "^4.8.0",
     "typescript": "^3.9.7",
     "vue": "^2.6.11",
