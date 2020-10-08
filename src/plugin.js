@@ -6,8 +6,10 @@ const methods = {
    *
    * @param {string} id id to scope
    */
-  $id(id = '') {
-    return `${this.uid}-${id}`;
+  $idFactory(uidProperty) {
+    return function $id(id = '') {
+      return `${this[uidProperty]}-${id}`;
+    }
   },
 
   /**
@@ -46,6 +48,6 @@ export default function install(Vue, options = {}) {
   });
 
   // Don't use Object.assign() to match the Vue.js supported browsers (ECMAScript 5)
-  Vue.prototype.$id = methods.$id;
+  Vue.prototype.$id = methods.$idFactory(uidProperty);
   Vue.prototype.$idRef = methods.$idRef;
 }
