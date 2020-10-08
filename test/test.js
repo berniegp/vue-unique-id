@@ -84,36 +84,10 @@ describe('Plugin', () => {
 
     it('uidProperty', () => {
       const vm = new Vue();
-      assert.isOk(vm[options.uidProperty]);
-      assert.isString(vm[options.uidProperty]);
-    });
-
-    describe('vm.$id()', () => {
-      describe('default id', () => {
-        it('returns a valid HTML 4 id ', () => {
-          const vm = new Vue();
-          assert.match(vm.$id(), validHTML4id);
-        });
-
-        it('is unique', () => {
-          const vm1 = new Vue();
-          const vm2 = new Vue();
-          assert.notEqual(vm1.$id(), vm2.$id());
-        });
-      });
-      describe('scoped id', () => {
-        it('returns a valid HTML 4 id ', () => {
-          const vm = new Vue();
-          assert.match(vm.$id('scoped'), validHTML4id);
-        });
-
-        it('is unique', () => {
-          const vm1 = new Vue();
-          const vm2 = new Vue();
-          console.log(vm1.$id('scoped'))
-          assert.notEqual(vm1.$id('scoped'), vm2.$id('scoped'));
-        });
-      });
+      const uid = vm[options.uidProperty];
+      assert.isOk(uid);
+      assert.isString(uid);
+      assert.include(vm.$id(), uid);
     });
   });
 });

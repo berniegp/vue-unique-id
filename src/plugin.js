@@ -9,7 +9,7 @@ const methods = {
   $idFactory(uidProperty) {
     return function $id(id = '') {
       return `${this[uidProperty]}-${id}`;
-    }
+    };
   },
 
   /**
