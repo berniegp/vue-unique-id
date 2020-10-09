@@ -84,8 +84,10 @@ describe('Plugin', () => {
 
     it('uidProperty', () => {
       const vm = new Vue();
-      assert.isOk(vm[options.uidProperty]);
-      assert.isString(vm[options.uidProperty]);
+      const uid = vm[options.uidProperty];
+      assert.isOk(uid);
+      assert.isString(uid);
+      assert.include(vm.$id(), uid);
     });
   });
 });
