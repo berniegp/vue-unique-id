@@ -37,13 +37,13 @@ async function buildEntry({ input, output }) {
   const bundle = await rollup.rollup(input);
   const { output: [{ code }] } = await bundle.generate(output);
   if (isProd) {
-    const minified = terser.minify(code, {
+    const result = await terser.minify(code, {
       toplevel: true,
       output: {
         ascii_only: true,
       },
-    }).code;
-    return write(file, minified, true);
+    });
+    return write(file, result.code, true);
   }
   return write(file, code);
 }
