@@ -1,6 +1,6 @@
 {
   "name": "vue-unique-id",
-  "version": "3.1.1",
+  "version": "3.1.2",
   "description": "Component and HTML unique id generation plugin for Vue.js",
   "main": "dist/vue-unique-id.common.js",
   "module": "dist/vue-unique-id.esm.js",
