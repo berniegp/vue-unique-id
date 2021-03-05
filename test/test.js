@@ -78,6 +78,7 @@ describe('Plugin', () => {
   describe('Options', () => {
     const options = {
       uidProperty: 'my_uid',
+      uidPrefix: 'custom-prefix-',
     };
     const Vue = createLocalVue();
     Vue.use(plugin, options);
@@ -88,6 +89,11 @@ describe('Plugin', () => {
       assert.isOk(uid);
       assert.isString(uid);
       assert.include(vm.$id(), uid);
+    });
+
+    it('uidPrefix', () => {
+      const vm = new Vue();
+      assert.include(vm.$id(), 'custom-prefix-');
     });
   });
 });

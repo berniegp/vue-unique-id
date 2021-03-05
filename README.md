@@ -112,6 +112,9 @@ const DEFAULTS = {
   // {string} Property name of the component's unique identifier. Change this if 'vm.uid' conflicts
   // with another plugin or your own props.
   uidProperty: 'uid',
+  // {string} Prefix to use when generating unique identifiers. Change this to make your ids more
+  // unique on a page that already uses or could use a similar naming scheme.
+  uidPrefix: 'uid-',
 };
 ```
 
