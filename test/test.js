@@ -93,7 +93,7 @@ describe('Plugin', () => {
 
     it('uidPrefix', () => {
       const vm = new Vue();
-      assert.include(vm.$id(), 'custom-prefix-');
+      assert.isOk(vm.$id().startsWith(options.uidPrefix));
     });
   });
 });
