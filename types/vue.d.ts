@@ -38,4 +38,10 @@ export interface PluginOptions {
    * with another plugin or your own props.
    */
   uidProperty: string;
+
+  /**
+   * Prefix to use when generating HTML ids. Change this to make your ids more unique on a
+   * page that already uses or could use a similar naming scheme.
+   */
+  uidPrefix: string;
 }

@@ -4,6 +4,7 @@ import install from '../';
 install(Vue);
 install(Vue, {
   uidProperty: 'uid',
+  uidPrefix: 'uid-',
 });
 
 const vm = new Vue({});
