@@ -15,7 +15,7 @@
     "build": "node build/build.js",
     "lint": "eslint src test build",
     "test": "npm run test:unit && npm run test:types",
-    "test:unit": "mocha test --recursive --require esm",
+    "test:unit": "mocha test --recursive --require esm --require jsdom-global/register",
     "test:types": "tsc -p types/test",
     "posttest": "npm run lint",
     "prepare": "npm run build",
@@ -52,10 +52,13 @@
     "eslint-plugin-import": "^2.22.1",
     "esm": "^3.2.25",
     "mocha": "^8.4.0",
+    "jsdom": "^17.0.0",
+    "jsdom-global": "^3.0.2",
     "rollup": "^2.47.0",
     "terser": "^5.7.0",
     "typescript": "^4.2.4",
     "vue": "^2.6.12",
+    "vue3": "npm:vue@^3.2.0",
     "vue-template-compiler": "^2.6.12"
   },
   "engines": {
