@@ -36,9 +36,8 @@ const DEFAULTS = {
 };
 
 function installVueGlobal(Vue, globalName, globalValue) {
-  const globalPrototype =
-    Vue.version.slice(0, 2) === '3.' ? Vue.config.globalProperties : Vue.prototype;
-  
+  const globalPrototype = Vue.version.slice(0, 2) === '3.' ? Vue.config.globalProperties : Vue.prototype;
+
   // Don't use Object.assign() to match the Vue.js supported browsers (ECMAScript 5)
   globalPrototype[globalName] = globalValue;
 }
