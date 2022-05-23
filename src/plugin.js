@@ -35,6 +35,14 @@ const DEFAULTS = {
   uidPrefix: 'uid-',
 };
 
+function installVueGlobal(Vue, globalName, globalValue) {
+  const globalPrototype =
+    Vue.version.slice(0, 2) === '3.' ? Vue.config.globalProperties : Vue.prototype;
+  
+  // Don't use Object.assign() to match the Vue.js supported browsers (ECMAScript 5)
+  globalPrototype[globalName] = globalValue;
+}
+
 export default function install(Vue, options = {}) {
   // Don't use object spread to merge the defaults because bublé transforms that to Object.assign
   const uidProperty = options.uidProperty || DEFAULTS.uidProperty;
@@ -52,7 +60,6 @@ export default function install(Vue, options = {}) {
     },
   });
 
-  // Don't use Object.assign() to match the Vue.js supported browsers (ECMAScript 5)
-  Vue.prototype.$id = methods.$idFactory(uidProperty);
-  Vue.prototype.$idRef = methods.$idRef;
+  installVueGlobal(Vue, '$id', methods.$idFactory(uidProperty));
+  installVueGlobal(Vue, '$idRef', methods.$idRef);
 }
