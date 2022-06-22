@@ -43,7 +43,7 @@ const configs = {
 function genConfig(opts) {
   const config = {
     input: {
-      input: resolve('src/plugin.js'),
+      input: resolve('src/plugin.mjs'),
       plugins: [
         replace({
           __VERSION__: version,

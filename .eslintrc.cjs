@@ -2,12 +2,6 @@ module.exports = {
   root: true,
   extends: 'airbnb-base',
   rules: {
-    // Allow to use braces if desired
-    'arrow-body-style': 0,
-
-    // Generally makes sense, but too strict to enforce
-    'class-methods-use-this': 0,
-
     // Trailing commas on function arguments is just silly
     'comma-dangle': ['error', {
       arrays: 'always-multiline',

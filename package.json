@@ -11,11 +11,11 @@
     "types/*.d.ts"
   ],
   "scripts": {
-    "dev:dist": "rollup --watch --sourcemap --config build/rollup.dev.config.js",
-    "build": "node build/build.js",
+    "dev:dist": "rollup --watch --sourcemap --config build/rollup.dev.config.cjs",
+    "build": "node build/build.cjs",
     "lint": "eslint src test build",
     "test": "npm run test:unit && npm run test:types",
-    "test:unit": "mocha test --recursive --require esm",
+    "test:unit": "mocha test --recursive",
     "test:types": "tsc -p types/test",
     "posttest": "npm run lint",
     "prepare": "npm run build",
@@ -45,18 +45,18 @@
   "devDependencies": {
     "@rollup/plugin-buble": "^0.21.3",
     "@rollup/plugin-replace": "^2.4.2",
-    "@vue/test-utils": "^1.2.0",
-    "chai": "^4.3.4",
-    "eslint": "^7.26.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-plugin-import": "^2.22.1",
+    "@vue/test-utils": "^1.3.0",
+    "chai": "^4.3.6",
+    "eslint": "^8.17.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "esm": "^3.2.25",
-    "mocha": "^8.4.0",
-    "rollup": "^2.47.0",
-    "terser": "^5.7.0",
-    "typescript": "^4.2.4",
-    "vue": "^2.6.12",
-    "vue-template-compiler": "^2.6.12"
+    "mocha": "^10.0.0",
+    "rollup": "^2.75.5",
+    "terser": "^5.14.0",
+    "typescript": "^4.7.3",
+    "vue": "^2.6.14",
+    "vue-template-compiler": "^2.6.14"
   },
   "engines": {
     "node": ">=14.0.0"
