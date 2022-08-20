@@ -1,3 +1,8 @@
+# Development of this plugin is discontinued. It still works perfectly well with Vue2, but I don't have time to port it to Vue3 and maintain it anymore.
+This is a really small plugin so feel free to its code and add it directly to your project. Good luck!
+
+There's also a fork that probably works with Vue3 here: https://github.com/snoozbuster/vue-unique-id
+
 [![Build Status](https://travis-ci.org/berniegp/vue-unique-id.svg?branch=master)](https://travis-ci.org/berniegp/vue-unique-id)
 
 # vue-unique-id
